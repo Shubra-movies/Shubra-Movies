@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Shawshank Redemption</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		header {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+		}
+
+		nav ul {
+			list-style: none;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		nav li a {
+			color: #d20505;
+			text-decoration: none;
+			font-size: 18px;
+		}
+
+		main {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+		section {
+			margin-bottom: 50px;
+		}
+
+		h2 {
+			margin-bottom: 20px;
+		}
+
+		.movie-list, .tv-show-list, .video-list {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.movie, .tv-show, .video {
+			flex-basis: calc(25% - 20px);
+			margin: 10px;
+			background-color: #000000;
+			padding: 20px;
+			text-align: center;
+		}
+
+		.movie h3, .tv-show h3, .video h3 {
+			font-size: 20px;
+			margin-bottom: 10px;
+		}
+
+		.movie img, .tv-show img, .video video {
+			max-width: 100%;
+			height: auto;
+			margin-bottom: 10px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Movies</a></li>
+				<li><a href="#">TV Shows</a></li>
+				<li><a href="#">Videos</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section class="videos">
+			<h2>Videos</h2>
+			<div class="video-list"></div>
+		</section>
+	</main>
+
+	<footer>
+		<p>&copy; 2023 Movie and Video Website</p>
+	</footer>
+
+	<script>
+        
+		let videos = [
+			{
+				title: 'Video 1',
+				url: 'https://example.com/video1.mp4'
+			},
+		];
+
+		let videoList = document.querySelector('.video-list');
+
+		for (let i = 0; i < videos.length; i++) {
+			let video = document.createElement('div');
+			video.classList.add('video');
+			video.innerHTML = `
+				<video controls>
+					<source src="${videos[i].url}" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+				<h3>${videos[i].title}</h3>
+			`;
+			videoList.appendChild(video);
+		}
+	</script>
+</body>
+</html>
